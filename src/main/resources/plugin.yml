@@ -1,0 +1,23 @@
+name: SBooks
+version: '${project.version}'
+main: me.sirius.sbooks.SBooks
+api-version: '1.21'
+author: Sirius
+website: https://github.com/JhonTova
+description: Guarda libros y los abre con comandos propios.
+
+# Sin SiriusCore.jar, Bukkit ni intenta cargar este plugin.
+depend:
+  - SiriusCore
+
+commands:
+  sbooks:
+    description: Gestiona los libros (guardar, abrir, borrar, listar).
+    usage: /sbooks <save|open|give|delete|setperm|list|reload>
+    aliases: [sbook]
+    permission: sbooks.admin
+
+permissions:
+  sbooks.admin:
+    description: Gestiona los libros de SBooks.
+    default: op

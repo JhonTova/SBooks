@@ -1,0 +1,45 @@
+# SBooks — libros abiertos por comando
+# https://github.com/JhonTova
+
+storage:
+  # sqlite (un archivo, sin configurar nada) o mysql.
+  type: sqlite
+
+  # Solo si type: mysql
+  host: localhost
+  port: 3306
+  database: minecraft
+  username: root
+  password: ''
+  ssl: false
+  pool-size: 10
+
+messages:
+  usage: |-
+    <gray>SBooks <dark_gray>— comandos:
+    <yellow>/sbooks save <id> [comando] <gray>guarda el libro que tienes en la mano
+    <yellow>/sbooks open <id> [jugador] <gray>abre un libro
+    <yellow>/sbooks give <id> [jugador] <gray>entrega el libro físico
+    <yellow>/sbooks setperm <id> <permiso|none> <gray>restringe quién puede abrirlo
+    <yellow>/sbooks delete <id> <gray>borra un libro
+    <yellow>/sbooks list <gray>lista los libros
+    <yellow>/sbooks reload <gray>recarga desde la base de datos
+  usage-save: '<gray>Uso: <yellow>/sbooks save <id> [comando] <gray>(con un libro en la mano).'
+  usage-delete: '<gray>Uso: <yellow>/sbooks delete <id>'
+  usage-open: '<gray>Uso: <yellow>/sbooks open <id> [jugador]'
+  usage-give: '<gray>Uso: <yellow>/sbooks give <id> [jugador]'
+  usage-setperm: '<gray>Uso: <yellow>/sbooks setperm <id> <permiso|none>'
+  not-a-book: '<red>Tienes que sostener un libro (escrito o de escritura) para guardarlo.'
+  saved: '<green>Libro <white><id></white> guardado. Ábrelo con <yellow>/<command></yellow>.'
+  command-taken: '<yellow>Aviso: el comando <white>/<command></white> ya existía. Usa <white>/<plugin>:<command></white> si hace falta.'
+  deleted: '<green>Libro <white><id></white> borrado.'
+  given: '<green>Entregado el libro <white><id></white> a <white><player></white>.'
+  perm-set: '<green>Permiso del libro <white><id></white>: <white><permission></white>.'
+  not-found: '<red>No existe ningún libro con ese id.'
+  no-permission: '<red>No tienes permiso para abrir este libro.'
+  player-not-found: '<red>Jugador no encontrado.'
+  players-only: '<red>Este comando solo pueden usarlo jugadores.'
+  list-empty: '<gray>No hay libros guardados todavía.'
+  list-header: '<gray>Libros guardados (<white><count></white>):'
+  list-entry: '<dark_gray>• <white><id> <dark_gray>→ <yellow>/<command> <dark_gray>· permiso: <gray><permission>'
+  reloaded: '<green>SBooks recargado.'
