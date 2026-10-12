@@ -50,12 +50,14 @@ public final class BookCommandRegistry {
     public void unregister(String commandName) {
         String name = commandName.toLowerCase();
         Command previous = registered.remove(name);
-        if (previous != null) {
-            previous.unregister(commandMap);
+        if (previous == null) {
+            return;
         }
+        previous.unregister(commandMap);
+        // remove(clave, valor): si el nombre lo tiene otro plugin, no es nuestro y no se toca.
         knownCommands().ifPresent(known -> {
-            known.remove(name);
-            known.remove(prefix + ":" + name);
+            known.remove(name, previous);
+            known.remove(prefix + ":" + name, previous);
         });
     }
 
